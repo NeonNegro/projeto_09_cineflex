@@ -5,3 +5,7 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.root > section:first-of-type{
+    padding-top: 67px;
+}
