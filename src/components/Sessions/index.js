@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import './style.css'
 import Day from '../Day'
+import { useParams } from 'react-router-dom'
 
 export default function Sessions(){
 
@@ -10,14 +11,14 @@ export default function Sessions(){
     const [days, setDays] = useState([]);
     const [movieInfo, setMovieInfo] = useState([]);
 
-    const id = 9;
+    const { idMovie } = useParams();
 
-    
+
 
 
     useEffect(() =>
     {
-        axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${id}/showtimes`)
+        axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${idMovie}/showtimes`)
         .then(response =>{
             setDays(response.data.days);
             setMovieInfo(response.data)

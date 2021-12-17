@@ -3,6 +3,7 @@ import MovieList from './components/MovieList'
 import Header from './components/Header'
 import Sessions from './components/Sessions'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function App() {
 
@@ -11,7 +12,7 @@ export default function App() {
         <Header/>
         <Routes>
             <Route path='/' element={<MovieList/>}/>
-            <Route path='/sessions' element={<Sessions/>}/>
+            <Route path='/sessions/:idMovie' element={<Sessions/>}/>
         </Routes>
       </BrowserRouter>
 
