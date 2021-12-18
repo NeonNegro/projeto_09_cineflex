@@ -5,8 +5,8 @@ export default function Movie({movie}){
 
     return (
         <div className='movie-container'>
-            <Link to={`/sessions/${movie.id}`}>
-            <img src={movie.posterURL}></img>
+            <Link to={`/sessoes/${movie.id}`}>
+            <img src={movie.posterURL} alt='poster do filme'></img>
             </Link>
         </ div>
     )

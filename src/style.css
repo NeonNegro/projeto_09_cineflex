@@ -9,3 +9,13 @@ body {
 .root > section:first-of-type{
     padding-top: 67px;
 }
+
+h2{
+    font-size: 24px;
+    color: #293845;
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
