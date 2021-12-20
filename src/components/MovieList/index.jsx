@@ -21,8 +21,10 @@ export default function MovieList(){
 
     return (
         <section className="movie-list">
-            <h1>Selecione o Filme</h1>
-            <div className='container'>
+            <div class="title">
+                <h2>Selecione o Filme</h2>
+            </div>
+            <div className="movies-container">
                 {movies.map(m => <Movie key={m.id} movie={m} />)}
             </div>
         </section >
