@@ -10,7 +10,7 @@ export default function Sessions(){
 
 
     const [days, setDays] = useState([]);
-    //const [movieInfo, setMovieInfo] = useState([]);
+    const [movieInfo, setMovieInfo] = useState([]);
 
     const { idMovie } = useParams();
 
@@ -22,7 +22,7 @@ export default function Sessions(){
         axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${idMovie}/showtimes`)
         .then(response =>{
             setDays(response.data.days);
-            //setMovieInfo(response.data);
+            setMovieInfo(response.data.movie);
         })
     }
     ,[]);
@@ -42,7 +42,7 @@ export default function Sessions(){
                 </div>
             ))} 
 
-            <Footer />  
+            <Footer movieInfo={movieInfo} />  
         </section>
     )
 }
