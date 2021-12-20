@@ -4,12 +4,9 @@ import './style.css'
 
 
 
-
 export default function Sucess(){
 
-
     const {state} = useLocation();
-    console.log(state);
 
     return (
         <section className='sucess'>

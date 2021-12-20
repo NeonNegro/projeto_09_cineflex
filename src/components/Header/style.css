@@ -1,6 +1,6 @@
 header{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position:fixed;
     z-index: 1;
@@ -11,5 +11,29 @@ header{
 
 header h1 {
     font-size: 34px;
-    color: #E8833A
+    color: #E8833A;
+    margin-right: auto;
+    transform: translateX(-25%);
 }
+
+header button {
+    width: 70px;
+    height: 100%;
+    justify-self: flex-start;
+    margin:0;
+    margin-right: auto;
+    background-color: #8fa6b9bb;
+    transition: .3s;
+}
+
+header button:hover {
+    background-color: #E8833A;
+}
+
+header button.hidden{
+    visibility: hidden;
+}
+
+ion-icon {
+    font-size: 64px;
+  }

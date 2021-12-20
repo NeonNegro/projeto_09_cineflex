@@ -14,8 +14,8 @@ export default function Footer({info}){
                 <img src={info.posterURL} alt="poster do filme" />
             </div>
             <div className="info">
-                <span className='title'>{info.title}</span>
-                {time}
+                <span> {info.title} </span>
+                <span> {time} </span>
             </div>
         </footer>
     )

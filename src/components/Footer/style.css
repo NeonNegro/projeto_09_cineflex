@@ -32,6 +32,9 @@ footer img{
 }
 
 footer .info {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
     font-size: 26px;
     line-height: 30px;
     color: #293845

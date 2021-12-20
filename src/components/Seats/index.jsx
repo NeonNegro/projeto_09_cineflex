@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import { useParams, useNavigate, Link} from 'react-router-dom'
 import axios from "axios";
 
 import './style.css'
@@ -10,8 +9,6 @@ import Footer from "../Footer";
 
 
 export default function Seats(){
-
-
 
     const [seats, setSeats] = useState([]);
     const [name, setName] = useState('');
@@ -31,7 +28,7 @@ export default function Seats(){
             setSeats(seats);
             setInfo({
                 title: response.data.movie.title,
-                time: `${response.data.day.weekday} - ${response.data.name}`,
+                time: `${response.data.day.date} - ${response.data.name}`,
                 posterURL: response.data.movie.posterURL
             })
         });
@@ -134,7 +131,7 @@ export default function Seats(){
             </div>
 
             <button onClick={buy}>Reservar assentos</button>
-            
+
             <Footer info={info} />
         </section>
     )
