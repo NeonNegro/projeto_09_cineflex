@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
-import './style.css'
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
+import './style.css'
+
 import Seat from '../Seat';
 import Footer from "../Footer";
-
 
 
 export default function Seats(){
@@ -16,10 +16,10 @@ export default function Seats(){
     const [seats, setSeats] = useState([]);
     const [name, setName] = useState('');
     const [cpf, setCPF] = useState('');
-    const [sessionInfo,setSessionInfo] = useState();
+    const [info,setInfo] = useState();
     
     const {idSession} = useParams();
-    const history = useNavigate();
+    const navigate = useNavigate();
     
     useEffect(() =>{
         axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSession}/seats`)
@@ -29,7 +29,7 @@ export default function Seats(){
                 s.isSelected = false;
             });
             setSeats(seats);
-            setSessionInfo({
+            setInfo({
                 title: response.data.movie.title,
                 time: `${response.data.day.weekday} - ${response.data.name}`,
                 posterURL: response.data.movie.posterURL
@@ -44,19 +44,31 @@ export default function Seats(){
         let bought = {
             ids: [],
             name : name,
-            cpf: cpf
+            cpf: cpf,
+            seatsNames: []
         };
+
+
 
         seats.filter(s => s.isSelected).forEach(s => {
             bought.ids.push(s.id);
+            bought.seatsNames.push(s.name);
         });
 
-        console.log(bought);
-
+        let send = { ...bought };
+        delete send.seatsNames;
 
         axios.post(`https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many`, bought)
         .then( response => {
-            history('/sucesso');
+            navigate('/sucesso', {
+                state: {
+                    movie: info.title,
+                    time: info.time,
+                    name: name,
+                    cpf: cpf,
+                    seatsNames: bought.seatsNames
+                }
+            });
             console.log('pegou');
         })
         .catch( error =>{
@@ -121,10 +133,9 @@ export default function Seats(){
                 <input type='text' placeholder="Digite seu CPF..." value= {cpf} onChange= {(e) => setCPF(e.currentTarget.value)}></input>
             </div>
 
-            <Link to=''>
-                <button onClick={buy}>Reservar assentos</button>
-            </Link>
-            <Footer sessionInfo={sessionInfo} />
+            <button onClick={buy}>Reservar assentos</button>
+            
+            <Footer info={info} />
         </section>
     )
 }

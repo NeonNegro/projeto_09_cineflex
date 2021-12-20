@@ -1,0 +1,23 @@
+.congrats h2{
+    color: #247A6B;
+    width: 40%;
+    text-align: center;
+    font-weight: 700;
+}
+
+section.sucess div{
+    margin-left: 30px;
+}
+section.sucess h3{
+    font-size: 24px;
+    font-weight: 700;
+    color: #293845;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+section.sucess span{
+    display: block;
+    font-size: 22px;
+    font-weight: 300;  /*  em 400 não está ficando como no Figma! */
+}

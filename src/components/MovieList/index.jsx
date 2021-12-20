@@ -21,7 +21,7 @@ export default function MovieList(){
 
     return (
         <section className="movie-list">
-            <div class="title">
+            <div className="title">
                 <h2>Selecione o Filme</h2>
             </div>
             <div className="movies-container">

@@ -1,19 +1,21 @@
 import './style.css'
 
-export default function Footer({sessionInfo}){
+export default function Footer({info}){
 
-    const img = '';
+    let time;
 
-    if(!sessionInfo) return  'carregando'
+    if(!info) return  'carregando'
+
+    time = (info.time) ? <span className='time'>{info.time}</span> : '';
 
     return (
         <footer>
             <div className="poster container">
-                <img src={sessionInfo.posterURL} alt="poster do filme" />
+                <img src={info.posterURL} alt="poster do filme" />
             </div>
             <div className="info">
-                <span className='title'>{sessionInfo.title}</span>
-                <span className='time'>Quinta-feira - 15:00</span>
+                <span className='title'>{info.title}</span>
+                {time}
             </div>
         </footer>
     )

@@ -1,16 +1,20 @@
-import Showtimes from '../Showtimes'
 import { Link } from 'react-router-dom';
+
+import './style.css'
 
 
 export default function Day({showtimes}){
 
-    console.log(showtimes);
+
+
 
     return (
-        showtimes.map(s => (
-        <Link key={s.id} to={`/assentos/${s.id}`}>
-            <Showtimes  showtime={s} />
-        </Link>
-        ))
+        <div className='hours-container'>
+            {showtimes.map(s => (
+                <Link key={s.id} to={`/assentos/${s.id}`}>
+                    <button>{s.name}</button>
+                </Link>
+            ))}
+        </div>
     )
 }

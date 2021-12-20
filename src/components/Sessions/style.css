@@ -1,0 +1,21 @@
+section.sessions h3 {
+    font-size: 20px;
+}
+
+
+section.sessions .days-container{
+    margin-left: 24px;
+}
+
+section.sessions button {
+    display: initial;
+    width: 83px;
+    height: 43px;
+    background-color: #E8833A;
+    border-radius: 3px;
+    padding: 0;
+    border: none;
+    font-size: 18px;
+    color: #FFFFFF;
+    margin: auto;
+}
